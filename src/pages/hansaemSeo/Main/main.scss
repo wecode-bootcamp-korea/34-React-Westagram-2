@@ -1,0 +1,108 @@
+.round-border {
+  border-radius: 10px;
+  border: 1.5px solid #e5e6e6;
+  margin: 0.5rem;
+}
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+  position: relative;
+}
+
+.main-feeds {
+  display: flex;
+  flex: auto;
+}
+
+.main-nav {
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 6rem;
+  overflow-y: scroll;
+  margin-right: 1rem;
+}
+
+@media screen and (max-width: 840px) {
+  .main-nav {
+    display: none;
+  }
+}
+
+.nav-wrapper-story {
+  height: 17rem;
+  margin: 0.5rem;
+  padding: 1rem 1rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.story-title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 2.5rem;
+}
+
+.storys {
+  flex: auto;
+  overflow-y: scroll;
+}
+
+.storys-story,
+.recomand {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+}
+
+.recommand-follow {
+  color: #0086ef;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.recommand-follow:hover {
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.recommand-title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 2.5rem;
+}
+
+.nav-wrapper-recommand {
+  height: 13rem;
+  padding: 1rem 1rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.recommands {
+  flex: auto;
+  overflow-y: scroll;
+}
+
+.story-title,
+.recommand-title {
+  color: #9a999b;
+}
+
+.story-title,
+.recommand-title,
+.story-all,
+.recommand-all {
+  font-weight: 500;
+}
+
+.wrapper-user {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+}
