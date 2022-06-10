@@ -1,0 +1,66 @@
+.header {
+  position: fixed;
+  height: 4rem;
+  width: 100%;
+  background-color: #fdfdfd;
+  border-bottom: 1.5px solid #e6e7e7;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .logo {
+    font-size: 2.3rem;
+    display: flex;
+    font-family: 'Cookie', cursive;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    flex: auto;
+
+    .logoIcon {
+      border-right: 1.5px solid black;
+      padding-right: 1.2rem;
+      margin-right: 1.2rem;
+    }
+  }
+  .wrapperSearch {
+    flex: auto;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    .searchInput {
+      width: 15rem;
+      height: 2.2rem;
+      background-color: #fafafa;
+      border: 2px solid #dbdbdb;
+      border-radius: 5px;
+      text-align: center;
+
+      &::-webkit-input-placeholder {
+        background-image: url(../../../assets/search-interface-symbol.png);
+        background-size: contain;
+        background-position: 1px center;
+        background-repeat: no-repeat;
+        text-align: center;
+        text-indent: 0;
+        font-weight: 500;
+      }
+    }
+  }
+  .wrapperMenus {
+    flex: auto;
+    display: flex;
+    justify-content: center;
+
+    .menu {
+      font-weight: 200;
+      font-size: 1.5rem;
+      color: #79787a;
+
+      &:nth-child(2) {
+        margin: 0 2rem;
+      }
+    }
+  }
+}
