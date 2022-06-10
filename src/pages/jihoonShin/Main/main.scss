@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+* {
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100vw;
+  height: 110vh;
+
+  .navbar {
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+    width: 100vw;
+    height: 70px;
+    border-bottom: 0.5px solid rgb(216, 216, 216);
+
+    .navbarLogo {
+      display: flex;
+      width: 300px;
+      height: 40px;
+      margin-top: 20px;
+      h3 {
+        border-left: 2px solid black;
+        padding-left: 15px;
+        font-size: 25px;
+        font-family: 'Lobster', cursive;
+      }
+
+      .navbarLogoIcon {
+        margin-right: 10px;
+      }
+    }
+
+    .navbarPadding {
+      padding: 5px 20px;
+    }
+
+    .navbarSearch {
+      width: 300px;
+      height: 70px;
+      input {
+        width: 250px;
+        margin-top: 20px;
+        padding: 5px;
+        border-radius: 3px;
+        border: 0.5px solid rgb(168, 168, 168);
+        text-align: center;
+        outline-style: none;
+      }
+      input::placeholder {
+        color: rgb(177, 177, 177);
+      }
+    }
+    .navbarProfile {
+      width: 250px;
+      height: 70px;
+
+      .navbarProfileIcon {
+        display: flex;
+        justify-content: flex-end;
+        gap: 40px;
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .feeds {
+    margin: 0px auto;
+    width: 1000px;
+    height: 100vh;
+    display: flex;
+  }
+}
