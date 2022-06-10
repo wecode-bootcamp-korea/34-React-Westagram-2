@@ -6,7 +6,7 @@ import {
   faHeart,
   faShareFromSquare,
 } from '@fortawesome/free-regular-svg-icons';
-import { faEllipsis, faX } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsis } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import UserCard from '../UserCard/UserCard';
 import Comments from '../Comments/Comments';
@@ -15,16 +15,21 @@ const Feed = ({
   feed,
   feed: { userInfo, feedImage, feedLikeMessage, feedLikeUserImage, comments },
   onAddComment,
+  onDeleteComment,
 }) => {
   const [comment, setComment] = useState('');
   const onCommentSubmit = ev => {
     ev.preventDefault();
-    onAddComment(feed, comment);
+    onAddComment(feed.feedId, comment);
     setComment('');
   };
 
   const handleChangeComment = ev => {
     setComment(ev.target.value);
+  };
+
+  const handleDeleteComment = commentId => {
+    onDeleteComment(feed.feedId, commentId);
   };
 
   return (
@@ -50,7 +55,7 @@ const Feed = ({
         <img className="user-icon-xsmall" src={feedLikeUserImage} alt="" />
         <span className="like-message">{feedLikeMessage}</span>
       </div>
-      <Comments comments={comments} />
+      <Comments comments={comments} onDeleteComment={handleDeleteComment} />
       <p className="feed-time">42분 전</p>
       <form className="new-comment" onSubmit={onCommentSubmit}>
         <input

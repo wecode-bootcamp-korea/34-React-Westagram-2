@@ -20,14 +20,14 @@ const DEFAULT_FEEDS = [
       {
         id: 0,
         userName: 'kor-sams-dev',
-        comment: '반짝반짝 자근별 아름답게 떠있네',
+        userComment: '반짝반짝 자근별 아름답게 떠있네',
         isAbleLike: false,
         isAbleDelete: false,
       },
       {
         id: 1,
         userName: 'neceosecuss',
-        comment: '이뿐 별이 보임니당',
+        userComment: '이뿐 별이 보임니당',
       },
     ],
   },
@@ -44,14 +44,14 @@ const DEFAULT_FEEDS = [
       {
         id: 0,
         userName: 'feeddd2',
-        comment: '제주에 오길 잘했네..잘했어..',
+        userComment: '제주에 오길 잘했네..잘했어..',
         isAbleLike: false,
         isAbleDelete: false,
       },
       {
         id: 1,
         userName: 'kor-sams-dev',
-        comment: '나도 제주도...ㅜㅠ',
+        userComment: '나도 제주도...ㅜㅠ',
       },
     ],
   },
@@ -126,15 +126,15 @@ const Main = props => {
 
   const [feeds, setFeeds] = useState(DEFAULT_FEEDS);
 
-  const handleAddComment = (feed, comment) => {
+  const handleAddComment = (feedId, comment) => {
     const newId = new Date().getTime();
     setFeeds(oldFeeds => {
       return oldFeeds.map(oldFeed => {
-        if (oldFeed.feedId === feed.feedId) {
+        if (oldFeed.feedId === feedId) {
           oldFeed.comments.push({
             id: newId,
             userName: 'kor-sams-dev',
-            comment: comment,
+            userComment: comment,
           });
           return oldFeed;
         } else {
@@ -144,11 +144,28 @@ const Main = props => {
     });
   };
 
+  const handleDeleteComment = (feedId, commentId) => {
+    setFeeds(oldFeeds => {
+      return oldFeeds.map(oldFeed => {
+        if (oldFeed.feedId === feedId) {
+          oldFeed.comments = oldFeed.comments.filter(
+            comment => comment.id !== commentId
+          );
+        }
+        return oldFeed;
+      });
+    });
+  };
+
   return (
     <div className="main">
       <Header />
       <main className="main-feeds">
-        <Feeds feeds={feeds} onAddComment={handleAddComment} />
+        <Feeds
+          feeds={feeds}
+          onAddComment={handleAddComment}
+          onDeleteComment={handleDeleteComment}
+        />
         <nav className="main-nav">
           <div className="wrapper-user">
             <UserCard userCard={myInfo} />
