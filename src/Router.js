@@ -16,10 +16,12 @@ import LoginYeon from './pages/suyeonPark/Login/Login';
 import MainYeon from './pages/suyeonPark/Main/Main';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import RoutePage from './pages/RoutePage/RoutePage';
 const Router = props => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<RoutePage />} />
         <Route path="/login-hyun" element={<LoginHyun />} />
         <Route path="/main-hyun" element={<MainHyun />} />
         <Route path="/login-saem" element={<LoginSaem />} />

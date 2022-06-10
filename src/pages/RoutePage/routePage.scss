@@ -1,0 +1,45 @@
+.routePage {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+
+  .title {
+    color: white;
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  .linkList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .link {
+      width: 300px;
+      height: 60px;
+      background-color: azure;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+      border-radius: 10px;
+
+      .linkText {
+        font-size: 30px;
+        font-weight: 600;
+        &:link {
+          text-decoration: none;
+          color: black;
+        }
+        &:visited {
+          text-decoration: none;
+          color: black;
+        }
+      }
+    }
+  }
+}
