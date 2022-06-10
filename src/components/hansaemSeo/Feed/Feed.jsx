@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Feed.scss';
 import {
   faBookmark,
@@ -9,10 +9,24 @@ import {
 import { faEllipsis, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import UserCard from '../UserCard/UserCard';
+import Comments from '../Comments/Comments';
 
 const Feed = ({
-  feed: { userInfo, feedImage, feedLikeMessage, feedLikeUserImage },
+  feed,
+  feed: { userInfo, feedImage, feedLikeMessage, feedLikeUserImage, comments },
+  onAddComment,
 }) => {
+  const [comment, setComment] = useState('');
+  const onCommentSubmit = ev => {
+    ev.preventDefault();
+    onAddComment(feed, comment);
+    setComment('');
+  };
+
+  const handleChangeComment = ev => {
+    setComment(ev.target.value);
+  };
+
   return (
     <article className="feed">
       <div className="feed-user-wrapper">
@@ -36,24 +50,16 @@ const Feed = ({
         <img className="user-icon-xsmall" src={feedLikeUserImage} alt="" />
         <span className="like-message">{feedLikeMessage}</span>
       </div>
-      <ul className="feed-comments">
-        <li className="comment-my">
-          <span className="feed-user-name">kor-sams-dev</span>
-          <span className="feed-user-comment">
-            반짝반짝 자근별 아름답게 떠있네
-          </span>
-        </li>
-        <li className="comment-another">
-          <span className="feed-user-name">neceosecuss</span>
-          <span className="feed-user-comment">이뿐 별이 보임니당</span>
-          <FontAwesomeIcon className="feed-comment-like" icon={faHeart} />
-          <FontAwesomeIcon className="feed-comment-delete" icon={faX} />
-        </li>
-      </ul>
+      <Comments comments={comments} />
       <p className="feed-time">42분 전</p>
-      <form className="new-comment">
-        <input className="comment-input" placeholder="댓글 달기..." />
-        <button className="comment-button" disabled>
+      <form className="new-comment" onSubmit={onCommentSubmit}>
+        <input
+          className="comment-input"
+          placeholder="댓글 달기..."
+          value={comment}
+          onChange={handleChangeComment}
+        />
+        <button className="comment-button" disabled={comment ? false : true}>
           게시
         </button>
       </form>

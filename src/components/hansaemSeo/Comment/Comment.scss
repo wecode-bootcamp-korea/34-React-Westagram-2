@@ -1,0 +1,27 @@
+.comment {
+  height: 1.5rem;
+  line-height: 1.6rem;
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+  .userName {
+    margin-right: 0.5rem;
+    font-weight: bold;
+  }
+  .userComment {
+    margin-right: auto;
+  }
+
+  .commentLike {
+    margin-right: 0.5rem;
+  }
+
+  .commentLike:hover,
+  .commentDelete:hover {
+    cursor: pointer;
+  }
+
+  .commentLike.check {
+    color: red;
+  }
+}

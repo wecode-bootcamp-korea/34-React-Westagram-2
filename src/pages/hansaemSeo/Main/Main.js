@@ -1,10 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Feeds from '../../../components/hansaemSeo/Feeds/Feeds';
 import Footer from '../../../components/hansaemSeo/Footer/Footer';
 import Header from '../../../components/hansaemSeo/Header/Header';
 import UserCard from '../../../components/hansaemSeo/UserCard/UserCard';
 import UserCards from '../../../components/hansaemSeo/UserCards/UserCards';
 import './main.scss';
+
+const DEFAULT_FEEDS = [
+  {
+    feedId: 1,
+    userInfo: {
+      userName: 'kor-sams-dev',
+      userImage: '/images/hansaemSeo/feed-user1.jpg',
+    },
+    feedImage: '/images/hansaemSeo/feed-image1.jpg',
+    feedLikeMessage: 'aineworld님 외 10명이 좋아합니다',
+    feedLikeUserImage: '/images/hansaemSeo/feed-comment.jpg',
+    comments: [
+      {
+        id: 0,
+        userName: 'kor-sams-dev',
+        comment: '반짝반짝 자근별 아름답게 떠있네',
+        isAbleLike: false,
+        isAbleDelete: false,
+      },
+      {
+        id: 1,
+        userName: 'neceosecuss',
+        comment: '이뿐 별이 보임니당',
+      },
+    ],
+  },
+  {
+    feedId: 2,
+    userInfo: {
+      userName: 'feeddd2',
+      userImage: '/images/hansaemSeo/feed-user2.jpg',
+    },
+    feedImage: '/images/hansaemSeo/feed-image2.jpg',
+    feedLikeMessage: 'sdcaewc님 외 230명이 좋아합니다',
+    feedLikeUserImage: '/images/hansaemSeo/feed-image3.jpg',
+    comments: [
+      {
+        id: 0,
+        userName: 'feeddd2',
+        comment: '제주에 오길 잘했네..잘했어..',
+        isAbleLike: false,
+        isAbleDelete: false,
+      },
+      {
+        id: 1,
+        userName: 'kor-sams-dev',
+        comment: '나도 제주도...ㅜㅠ',
+      },
+    ],
+  },
+];
 
 const Main = props => {
   const myInfo = {
@@ -73,33 +124,31 @@ const Main = props => {
     },
   ];
 
-  const feeds = [
-    {
-      feedId: 1,
-      userInfo: {
-        userName: 'kor-sams-dev',
-        userImage: '/images/hansaemSeo/feed-user1.jpg',
-      },
-      feedImage: '/images/hansaemSeo/feed-image1.jpg',
-      feedLikeMessage: 'aineworld님 외 10명이 좋아합니다',
-      feedLikeUserImage: '/images/hansaemSeo/feed-comment.jpg',
-    },
-    {
-      feedId: 2,
-      userInfo: {
-        userName: 'feeddd2',
-        userImage: '/images/hansaemSeo/feed-user2.jpg',
-      },
-      feedImage: '/images/hansaemSeo/feed-image2.jpg',
-      feedLikeMessage: 'sdcaewc님 외 230명이 좋아합니다',
-      feedLikeUserImage: '/images/hansaemSeo/feed-image3.jpg',
-    },
-  ];
+  const [feeds, setFeeds] = useState(DEFAULT_FEEDS);
+
+  const handleAddComment = (feed, comment) => {
+    const newId = new Date().getTime();
+    setFeeds(oldFeeds => {
+      return oldFeeds.map(oldFeed => {
+        if (oldFeed.feedId === feed.feedId) {
+          oldFeed.comments.push({
+            id: newId,
+            userName: 'kor-sams-dev',
+            comment: comment,
+          });
+          return oldFeed;
+        } else {
+          return oldFeed;
+        }
+      });
+    });
+  };
+
   return (
     <div className="main">
       <Header />
       <main className="main-feeds">
-        <Feeds feeds={feeds} />
+        <Feeds feeds={feeds} onAddComment={handleAddComment} />
         <nav className="main-nav">
           <div className="wrapper-user">
             <UserCard userCard={myInfo} />

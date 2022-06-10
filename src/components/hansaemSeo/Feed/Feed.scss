@@ -47,43 +47,11 @@
   font-weight: 500;
 }
 
-.feed-comments {
-  padding-left: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  font-size: 0.9rem;
-
-  li {
-    height: 1.5rem;
-    line-height: 1.6rem;
-  }
-
-  .comment-another {
-    display: flex;
-    align-items: center;
-    padding-right: 0.5rem;
-  }
-
-  .feed-user-name {
-    margin-right: 0.5rem;
-  }
-
-  .feed-comment-like {
-    margin-left: auto;
-    margin-right: 0.5rem;
-  }
-}
-
 .feed-time {
   height: 1.5rem;
   margin-left: 0.5rem;
   margin-top: 0.5rem;
   color: #9e9e9e;
-}
-
-.feed-user-name {
-  font-weight: bold;
 }
 
 .new-comment {
@@ -109,13 +77,10 @@
   }
 }
 
-.feed-like:hover,
-.feed-comment-like:hover,
-.feed-comment-delete:hover {
+.feed-like:hover {
   cursor: pointer;
 }
 
-.feed-like.check,
-.feed-comment-like.check {
+.feed-like.check {
   color: red;
 }
