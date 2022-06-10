@@ -2,8 +2,11 @@ import React from 'react';
 import './main.scss';
 import './mainleft.scss';
 import './mainright.scss';
+import { useState } from 'react';
 
 const Main = () => {
+  let [reple, setReple] = useState([]);
+  let [inputValue, setInputValue] = useState('');
   return (
     <div className="container">
       <nav className="navbar">
@@ -88,23 +91,42 @@ const Main = () => {
               <p>
                 <span>abc_ram</span> 아무거나 입력
               </p>
-              <div className="contentsMessageBox">
-                <p>
-                  <span>Qmzmzejj</span> 도레미파솔라빔~
-                </p>
-                <p className="commentDeleteButton">X</p>
-              </div>
-              <p className="gray">1시간 전</p>
+              {reple.map((a, i) => {
+                return (
+                  // <>
+                  //   <div className="contentsMessageBox" key={i}>
+                  //     <p>
+                  //       <span>Qmzmzejj</span> {reple[i]}
+                  //     </p>
+                  //     <p className="commentDeleteButton">X</p>
+                  //   </div>
+                  //   <p className="gray">1시간 전</p>
+                  // </>
+                  <Reple inputValue={inputValue} reple={reple} a={a} i={i} />
+                );
+              })}
             </div>
           </div>
-          <div className="mainLeftReple">
+          <form
+            className="mainLeftReple"
+            onSubmit={e => {
+              e.preventDefault();
+              let newValue = [...reple];
+              newValue.push(inputValue);
+              setReple(newValue);
+              e.target.reset();
+            }}
+          >
             <input
               className="mainComment"
               type="text"
               placeholder="댓글 달기..."
+              onChange={e => {
+                setInputValue(e.target.value);
+              }}
             />
             <p className="print">게시</p>
-          </div>
+          </form>
         </article>
 
         <div className="mainRight">
@@ -211,6 +233,20 @@ const Main = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+const Reple = props => {
+  return (
+    <>
+      <div className="contentsMessageBox" key={props.i}>
+        <p>
+          <span>Qmzmzejj</span> {props.reple[props.i]}
+        </p>
+        <p className="commentDeleteButton">X</p>
+      </div>
+      <p className="gray">1시간 전</p>
+    </>
   );
 };
 
