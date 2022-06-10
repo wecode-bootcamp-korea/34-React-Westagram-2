@@ -3,10 +3,13 @@ import './Feed.scss';
 import {
   faBookmark,
   faComment,
-  faHeart,
+  faHeart as faHeartRegular,
   faShareFromSquare,
 } from '@fortawesome/free-regular-svg-icons';
-import { faEllipsis } from '@fortawesome/free-solid-svg-icons';
+import {
+  faEllipsis,
+  faHeart as faHeartSolid,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import UserCard from '../UserCard/UserCard';
 import Comments from '../Comments/Comments';
@@ -18,6 +21,12 @@ const Feed = ({
   onDeleteComment,
 }) => {
   const [comment, setComment] = useState('');
+  const [like, setLike] = useState(false);
+
+  const hendleLikeClick = () => {
+    setLike(oldLike => !oldLike);
+  };
+
   const onCommentSubmit = ev => {
     ev.preventDefault();
     onAddComment(feed.feedId, comment);
@@ -41,8 +50,9 @@ const Feed = ({
       <img className="feed-image" src={feedImage} alt="feed" />
       <div className="feed-action-menus">
         <FontAwesomeIcon
-          className="feed-like feed-action-menu"
-          icon={faHeart}
+          className={`feed-like feed-action-menu${like ? ' check' : ''}`}
+          icon={like ? faHeartSolid : faHeartRegular}
+          onClick={hendleLikeClick}
         />
         <FontAwesomeIcon className="feed-action-menu" icon={faComment} />
         <FontAwesomeIcon
