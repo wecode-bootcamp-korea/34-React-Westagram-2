@@ -64,6 +64,32 @@ body {
           font-size: 14px;
           opacity: 0.5;
         }
+        .post_li {
+          display: flex;
+          justify-content: space-between;
+          height: 20px;
+          .post_left {
+            .post_id {
+              margin-right: 10px;
+              font-weight: 600;
+            }
+          }
+          .post_right {
+            .post_heart {
+              width: 20px;
+              height: 20px;
+            }
+            .post_btn {
+              width: 20px;
+              height: 20px;
+              background-color: white;
+              border: none;
+              font-size: 20px;
+              padding: 0;
+            }
+          }
+        }
+
         .hour_ago span {
           font-size: 12px;
           opacity: 0.5;
@@ -407,4 +433,8 @@ nav {
       margin-right: 20px;
     }
   }
+}
+
+li {
+  list-style: none;
 }

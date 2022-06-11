@@ -3,12 +3,15 @@ import React from 'react';
 import '../../../styles/reset.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-import {
-  faBookmark,
-  faMagnifyingGlass,
-  faEllipsis,
-} from '@fortawesome/free-regular-svg-icons';
+import { faBookmark } from '@fortawesome/free-regular-svg-icons';
+import { useState } from 'react';
+
 const Main = () => {
+  const [textInput, setTextInput] = useState('');
+  const [postTextInput, setPostTextInput] = useState([]);
+  const [userId] = useState('bbbb0221');
+  const eventInput = e => setTextInput(e.target.value);
+
   return (
     <>
       <nav>
@@ -143,25 +146,43 @@ const Main = () => {
               </div>
               <div className="feeds_post">
                 <span>bbbb_0221</span>
-                <span>여행가고싶어어어엉어어..</span>
+                <span>나는 왜 안돼 </span>
                 <span className="after_view"> 더 보기</span>
                 <div className="hour_ago">
                   <span>1시간 전</span>
                 </div>
-                <ul className="feeds_ul"></ul>
+
+                {postTextInput.map((a, i) => {
+                  return (
+                    <AddComment
+                      setPostTextInput={setPostTextInput}
+                      postTextInput={postTextInput}
+                      userId={userId}
+                      comment={a}
+                      i={i}
+                    />
+                  );
+                })}
               </div>
-              <div className="feeds_comment">
+              <form
+                onSubmit={e => {
+                  let copy = [...postTextInput];
+                  copy.unshift(textInput);
+                  setPostTextInput(copy);
+                  e.target.reset();
+                  e.preventDefault();
+                }}
+                className="feeds_comment"
+              >
                 <textarea
-                  onKeyUp="enterkey()"
+                  onChange={eventInput}
                   placeholder="댓글 달기..."
-                  className="PUqUI Ypffh"
                   autoComplete="off"
                   autoCorrect="off"
+                  row="1"
                 ></textarea>
-                <button disabled type="button" className="comment_post">
-                  게시
-                </button>
-              </div>
+                <button className="comment_post">게시</button>
+              </form>
             </div>
           </div>
           <div className="main-right">
@@ -320,6 +341,39 @@ const Main = () => {
         </main>
       </div>
     </>
+  );
+};
+
+const AddComment = props => {
+  const [heart, setHeart] = useState('./images/gwanghyunBaek/heart.png');
+  const heartChange = () => {
+    heart === './images/gwanghyunBaek/heart.png'
+      ? setHeart('./images/gwanghyunBaek/heart1.png')
+      : setHeart('./images/gwanghyunBaek/heart.png');
+  };
+
+  // const onRemove =
+
+  return (
+    <li className="post_li" key={props.i}>
+      <div className="post_left">
+        <span className="post_id">{props.userId}</span>
+        <span className="post_add_comment">{props.comment}</span>
+      </div>
+      <div className="post_right">
+        <img onClick={heartChange} className="post_heart" src={heart} alt="" />
+        <button
+          onClick={() => {
+            let copy = [...props.postTextInput];
+            copy.splice(props.i, 1);
+            props.setPostTextInput(copy);
+          }}
+          className="post_btn"
+        >
+          x
+        </button>
+      </div>
+    </li>
   );
 };
 
