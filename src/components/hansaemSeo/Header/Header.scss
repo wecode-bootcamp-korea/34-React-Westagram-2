@@ -37,7 +37,47 @@
     flex: auto;
     display: flex;
     justify-content: center;
-    position: relative;
+    flex-direction: column;
+
+    .searchBoxWrapper {
+      display: none;
+      width: 15rem;
+      height: 0;
+      position: relative;
+
+      .searchBox {
+        position: absolute;
+        width: 20rem;
+        height: 250px;
+        background-color: #fafafa;
+        border: 1px solid #e6e7e7;
+        border-radius: 3px;
+        top: 10px;
+        left: -2.5rem;
+        box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.4);
+        overflow-y: scroll;
+        padding: 0 10px;
+
+        &:after {
+          content: '';
+          border-top: 0 solid transparent;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-bottom: 10px solid #fafafa;
+          position: absolute;
+          top: -10px;
+          left: 50%;
+        }
+
+        .searchItem {
+          border-bottom: 2px solid #e6e7e7;
+        }
+      }
+    }
+
+    &:focus-within .searchBoxWrapper {
+      display: flex;
+    }
 
     .searchInput {
       width: 15rem;
