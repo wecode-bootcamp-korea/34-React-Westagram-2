@@ -22,6 +22,16 @@
       padding-right: 1.2rem;
       margin-right: 1.2rem;
     }
+    .linkText {
+      &:link {
+        text-decoration: none;
+        color: black;
+      }
+      &:visited {
+        text-decoration: none;
+        color: black;
+      }
+    }
   }
   .wrapperSearch {
     flex: auto;

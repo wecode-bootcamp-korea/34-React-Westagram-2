@@ -7,13 +7,16 @@ import {
 } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { Link } from 'react-router-dom';
 
-const Header = (props) => {
+const Header = props => {
   return (
     <header className="header">
       <div className="logo">
         <FontAwesomeIcon className="logoIcon" icon={faInstagram} />
-        <h2 className="title">Westagram</h2>
+        <Link className="linkText" to="/login-saem">
+          <h2 className="title">Westagram</h2>
+        </Link>
       </div>
       <div className="wrapperSearch">
         <input className="searchInput" placeholder="검색" />
