@@ -1,40 +1,6 @@
 import React, { useState } from 'react';
 import './main.scss';
-
-function UserComment(props) {
-  return (
-    <ul class="usercomment">
-      <li class="eachUserComment">
-        <span>_kosora</span>
-        <p>제주도 또 가고싶다,,,</p>
-        <button class="heart">
-          <i class="fa-regular fa-heart" />
-        </button>
-        <button class="delete">
-          <i class="fa-regular fa-trash-can" />
-        </button>
-      </li>
-      {props.replyList.map((item, i) => (
-        <EachUserComment item={item} key={i} />
-      ))}
-    </ul>
-  );
-}
-
-function EachUserComment(props) {
-  return (
-    <li class="eachUserComment">
-      <span>_sooyuni</span>
-      <p>{props.item}</p>
-      <button class="heart">
-        <i class="fa-regular fa-heart" />
-      </button>
-      <button class="delete">
-        <i class="fa-regular fa-trash-can" />
-      </button>
-    </li>
-  );
-}
+import UserComment from './UserComment';
 
 const Main = () => {
   const [inputValue, setInputValue] = useState('');
@@ -44,6 +10,7 @@ const Main = () => {
     setReplyList([...replyList, inputValue]);
     setInputValue(''); //댓글이 달리면 인풋창 초기화
   };
+
   const [colorAbled, setColorAbled] = useState('#b2dffc'); //조건에 부합하면 색 바뀜
   const [disabled, setDisabled] = useState('disabled'); //조건에 부합하기 전까지 버튼 클릭 막음
 
@@ -116,22 +83,10 @@ const Main = () => {
             <p>제주도 첫 날에 갔던 스누피 가든...</p>
             <a href="">더 보기</a>
           </div>
-          {/* <ul class="usercomment">   여긴 나중에 지울 것 같음..
-            <li class="eachUserComment">
-              <span>_kosora</span>
-              <p>제주도 또 가고싶다,,,</p>
-              <button class="heart">
-                <i class="fa-regular fa-heart" />
-              </button>
-              <button class="delete">
-                <i class="fa-regular fa-trash-can" />
-              </button>
-            </li>
-          </ul> */}
           <div class="writingTime">
             <span>1시간 전</span>
           </div>
-          <UserComment replyList={replyList} />
+          <UserComment replyList={replyList} setReplyList={setReplyList} />
           <div class="myComment">
             <form onSubmit={handleSubmit}>
               <input
