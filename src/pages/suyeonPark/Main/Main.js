@@ -1,7 +1,67 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './main.scss';
 
+function UserComment(props) {
+  return (
+    <ul class="usercomment">
+      <li class="eachUserComment">
+        <span>_kosora</span>
+        <p>제주도 또 가고싶다,,,</p>
+        <button class="heart">
+          <i class="fa-regular fa-heart" />
+        </button>
+        <button class="delete">
+          <i class="fa-regular fa-trash-can" />
+        </button>
+      </li>
+      {props.replyList.map((item, i) => (
+        <EachUserComment item={item} key={i} />
+      ))}
+    </ul>
+  );
+}
+
+function EachUserComment(props) {
+  return (
+    <li class="eachUserComment">
+      <span>_sooyuni</span>
+      <p>{props.item}</p>
+      <button class="heart">
+        <i class="fa-regular fa-heart" />
+      </button>
+      <button class="delete">
+        <i class="fa-regular fa-trash-can" />
+      </button>
+    </li>
+  );
+}
+
 const Main = () => {
+  const [inputValue, setInputValue] = useState('');
+  const [replyList, setReplyList] = useState([]);
+
+  const addItem = () => {
+    setReplyList([...replyList, inputValue]);
+    setInputValue(''); //댓글이 달리면 인풋창 초기화
+  };
+  const [colorAbled, setColorAbled] = useState('#b2dffc'); //조건에 부합하면 색 바뀜
+  const [disabled, setDisabled] = useState('disabled'); //조건에 부합하기 전까지 버튼 클릭 막음
+
+  const replyButtonabled = () => {
+    if (inputValue.length > 0) {
+      setColorAbled('#0195f7');
+      setDisabled('');
+    } else {
+      setColorAbled('#b2dffc');
+      setDisabled('disabled');
+    }
+  };
+
+  //form 태그 새로 고침 막기
+  const handleSubmit = event => {
+    event.preventDefault();
+  };
+
   return (
     <div class="main">
       <nav class="navigationBox">
@@ -56,26 +116,38 @@ const Main = () => {
             <p>제주도 첫 날에 갔던 스누피 가든...</p>
             <a href="">더 보기</a>
           </div>
-          <ul class="usercomment">
+          {/* <ul class="usercomment">   여긴 나중에 지울 것 같음..
             <li class="eachUserComment">
               <span>_kosora</span>
               <p>제주도 또 가고싶다,,,</p>
-              <button>
+              <button class="heart">
                 <i class="fa-regular fa-heart" />
               </button>
+              <button class="delete">
+                <i class="fa-regular fa-trash-can" />
+              </button>
             </li>
-          </ul>
+          </ul> */}
           <div class="writingTime">
             <span>1시간 전</span>
           </div>
+          <UserComment replyList={replyList} />
           <div class="myComment">
-            <form onsubmit="return false;">
+            <form onSubmit={handleSubmit}>
               <input
                 class="myCommentInput"
                 type="text"
                 placeholder="댓글 달기..."
+                value={inputValue}
+                onChange={e => setInputValue(e.target.value)}
+                onKeyUp={replyButtonabled}
               />
-              <button class="myCommentButton" disabled>
+              <button
+                class="myCommentButton"
+                disabled={disabled}
+                style={{ color: colorAbled }}
+                onClick={addItem}
+              >
                 게시
               </button>
             </form>
