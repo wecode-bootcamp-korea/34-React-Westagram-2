@@ -176,12 +176,10 @@ const Main = () => {
                 }}
                 className="feeds_comment"
               >
-                <textarea
+                <input
                   onChange={eventInput}
                   placeholder="댓글 달기..."
-                  autoComplete="off"
-                  autoCorrect="off"
-                  row="1"
+                  type="text"
                 />
                 <button className="comment_post">게시</button>
               </form>
