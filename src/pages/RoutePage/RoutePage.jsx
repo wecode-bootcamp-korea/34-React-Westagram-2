@@ -25,7 +25,7 @@ const RoutePage = props => {
     },
     {
       id: 'yeon',
-      name: '박수현',
+      name: '박수연',
       link: 'login-yeon',
     },
   ];
