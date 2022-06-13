@@ -7,6 +7,14 @@ import { useState } from 'react';
 const Main = () => {
   let [reple, setReple] = useState([]);
   let [inputValue, setInputValue] = useState('');
+
+  const inputReple = e => {
+    e.preventDefault();
+    let newValue = [...reple];
+    newValue.push(inputValue);
+    setReple(newValue);
+    e.target.reset();
+  };
   return (
     <div className="container">
       <nav className="navbar">
@@ -93,30 +101,18 @@ const Main = () => {
               </p>
               {reple.map((a, i) => {
                 return (
-                  // <>
-                  //   <div className="contentsMessageBox" key={i}>
-                  //     <p>
-                  //       <span>Qmzmzejj</span> {reple[i]}
-                  //     </p>
-                  //     <p className="commentDeleteButton">X</p>
-                  //   </div>
-                  //   <p className="gray">1시간 전</p>
-                  // </>
-                  <Reple inputValue={inputValue} reple={reple} a={a} i={i} />
+                  <Reple
+                    inputValue={inputValue}
+                    reple={reple}
+                    i={i}
+                    key={i}
+                    setReple={setReple}
+                  />
                 );
               })}
             </div>
           </div>
-          <form
-            className="mainLeftReple"
-            onSubmit={e => {
-              e.preventDefault();
-              let newValue = [...reple];
-              newValue.push(inputValue);
-              setReple(newValue);
-              e.target.reset();
-            }}
-          >
+          <form className="mainLeftReple" onSubmit={inputReple}>
             <input
               className="mainComment"
               type="text"
@@ -125,7 +121,16 @@ const Main = () => {
                 setInputValue(e.target.value);
               }}
             />
-            <p className="print">게시</p>
+            <p
+              className="print"
+              onClick={() => {
+                let newValue = [...reple];
+                newValue.push(inputValue);
+                setReple(newValue);
+              }}
+            >
+              게시
+            </p>
           </form>
         </article>
 
@@ -243,7 +248,19 @@ const Reple = props => {
         <p>
           <span>Qmzmzejj</span> {props.reple[props.i]}
         </p>
-        <p className="commentDeleteButton">X</p>
+        <div className="commentLikeBox">
+          <i className="fa-solid fa-heart commentLikeHeart" />
+          <p
+            className="commentDeleteButton"
+            onClick={() => {
+              let newReple = [...props.reple];
+              newReple.splice(props.i, 1);
+              props.setReple(newReple);
+            }}
+          >
+            X
+          </p>
+        </div>
       </div>
       <p className="gray">1시간 전</p>
     </>
