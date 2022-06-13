@@ -41,8 +41,8 @@ body {
             margin: 0 3px;
           }
 
-          .fa-bookmark {
-            margin-top: 15px;
+          .bookmark {
+            font-size: 20px;
           }
         }
 
@@ -174,9 +174,9 @@ body {
           display: flex;
           justify-content: space-between;
 
-          .fa-ellipsis {
-            margin-right: 15px;
-            margin-top: 5px;
+          .faEllipsis {
+            margin: 10px 15px 0px 0px;
+            font-size: 20px;
           }
 
           .main_profile_name {
@@ -404,10 +404,11 @@ nav {
       width: 220px;
       height: 35px;
     }
-    .fa-magnifying-glass {
+    .fa_search {
       position: absolute;
-      left: 80px;
-      top: 30px;
+      left: 70px;
+      top: 18px;
+      font-size: 18px;
       opacity: 0.5;
     }
   }
