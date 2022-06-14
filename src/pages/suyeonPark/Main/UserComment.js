@@ -5,7 +5,7 @@ import React from 'react';
 const UserComment = props => {
   return (
     <ul class="usercomment">
-      <li class="eachUserComment">
+      {/* <li class="eachUserComment">
         <span>_kosora</span>
         <p>제주도 또 가고싶다,,,</p>
         <button class="heart">
@@ -14,9 +14,9 @@ const UserComment = props => {
         <button class="delete">
           <i class="fa-regular fa-trash-can" />
         </button>
-      </li>
+      </li> */}
       {props.replyList.map((reply, i) => (
-        <li class="eachUserComment" reply={reply} key={i}>
+        <li class="eachUserComment" key={i}>
           <span>_sooyuni</span>
           <p>{reply}</p>
           <button class="heart">

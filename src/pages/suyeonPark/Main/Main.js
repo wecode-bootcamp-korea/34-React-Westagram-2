@@ -83,10 +83,13 @@ const Main = () => {
             <p>제주도 첫 날에 갔던 스누피 가든...</p>
             <a href="">더 보기</a>
           </div>
+          <p class="showCommentAll">
+            댓글 <span>{replyList.length}개 모두 보기</span>
+          </p>
+          <UserComment replyList={replyList} setReplyList={setReplyList} />
           <div class="writingTime">
             <span>1시간 전</span>
           </div>
-          <UserComment replyList={replyList} setReplyList={setReplyList} />
           <div class="myComment">
             <form onSubmit={handleSubmit}>
               <input

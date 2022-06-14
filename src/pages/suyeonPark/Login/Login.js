@@ -56,7 +56,7 @@ const Login = () => {
             />
             <button
               id="logInBtn"
-              type="button"
+              type="subimit" //타입을 submit으로 지정해주면 엔터가 먹힘
               onClick={goToMain}
               style={{ backgroundColor: colorAbled }}
               disabled={disabled}

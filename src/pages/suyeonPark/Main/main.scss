@@ -227,7 +227,12 @@ body {
           }
         }
       }
-
+      .showCommentAll {
+        margin-left: 12px;
+        margin-bottom: 4px;
+        color: #a5a6a8;
+        font-size: 12px;
+      }
       .writingTime {
         margin-left: 12px;
         margin-bottom: 4px;
@@ -235,6 +240,7 @@ body {
         font-size: 12px;
         font-weight: bold;
       }
+
       .myComment {
         form {
           display: flex;
