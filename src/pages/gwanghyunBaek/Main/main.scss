@@ -1,11 +1,3 @@
-body {
-  width: 100vw;
-  background-color: #fafafa;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-}
-
 .width_ {
   width: 821px;
   margin: 0 auto;
@@ -217,7 +209,7 @@ body {
 
       .right_profile_name {
         display: flex;
-        align-items: flex-end;
+        margin: 0 0 20px 0;
 
         .right_profile_img {
           width: 45px;
@@ -229,8 +221,14 @@ body {
         .right_profile_id {
           display: flex;
           flex-direction: column;
-          margin-top: 55px;
+          margin-top: 65px;
           margin-left: 10px;
+        }
+        .right_profile_id span:first-child {
+          font-weight: 600;
+        }
+        .right_profile_id span:last-child {
+          font-size: 15px;
         }
       }
     }
