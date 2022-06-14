@@ -3,10 +3,14 @@ import './main.scss';
 import './mainleft.scss';
 import './mainright.scss';
 import { useState } from 'react';
+import profileData from './searchData';
 
 const Main = () => {
   let [reple, setReple] = useState([]);
   let [inputValue, setInputValue] = useState('');
+  let [buttonModal, setButtonModal] = useState(false);
+  let [profile] = useState(profileData);
+  let [searchValue, setSearchValue] = useState('');
 
   const inputReple = e => {
     e.preventDefault();
@@ -16,7 +20,10 @@ const Main = () => {
     e.target.reset();
   };
   return (
-    <div className="container">
+    <div
+      className="container"
+      style={{ backgroundColor: 'rgb(245, 245, 245)' }}
+    >
       <nav className="navbar">
         <div className="navbarLogo navbarPadding">
           <div className="navbarLogoIcon">
@@ -29,7 +36,22 @@ const Main = () => {
           <h3>instagram</h3>
         </div>
         <div className="navbarSearch navbarPadding">
-          <input type="text" placeholder="검색" />
+          {/* 검색 기능 구현 미완성 6월 13일 */}
+          <input
+            type="text"
+            placeholder="검색"
+            onChange={e => {
+              setSearchValue(e.target.value);
+              {
+                profile.filter(() => {});
+              }
+            }}
+            onClick={() => {
+              setButtonModal(!buttonModal);
+            }}
+          />
+
+          {buttonModal === true ? <SearchModal profile={profile} /> : null}
         </div>
         <div className="navbarProfile navbarPadding">
           <div className="navbarProfileIcon">
@@ -79,6 +101,7 @@ const Main = () => {
                   src="/images/jihoonShin/heart.png"
                   alt=""
                   style={{ width: '23px' }}
+                  className="likeHeart"
                 />
                 <i className="fa-solid fa-comment-dots" />
                 <i className="fa-solid fa-arrow-up-from-bracket" />
@@ -150,33 +173,7 @@ const Main = () => {
               <h4>모두 보기</h4>
             </div>
             <div className="mainRightStoryProfile">
-              <div className="StoryProfileSet">
-                <div className="StoryProfileIcon">
-                  <img src="/images/jihoonShin/car1.png" alt="null" />
-                </div>
-                <div className="StoryProfileName">
-                  <h4>A_iii_1</h4>
-                  <p>30분 전</p>
-                </div>
-              </div>
-              <div className="StoryProfileSet">
-                <div className="StoryProfileIcon">
-                  <img src="/images/jihoonShin/car2.png" alt="null" />
-                </div>
-                <div className="StoryProfileName">
-                  <h4>B_nnn_5</h4>
-                  <p>15분 전</p>
-                </div>
-              </div>
-              <div className="StoryProfileSet">
-                <div className="StoryProfileIcon">
-                  <img src="/images/jihoonShin/car3.png" alt="null" />
-                </div>
-                <div className="StoryProfileName">
-                  <h4>C_qqq_7</h4>
-                  <p>45분 전</p>
-                </div>
-              </div>
+              <StoryProfile />
             </div>
           </div>
           <div className="mainRightPeople">
@@ -242,6 +239,8 @@ const Main = () => {
 };
 
 const Reple = props => {
+  let [likeHeart, setLikeHeart] = useState('');
+
   return (
     <>
       <div className="contentsMessageBox" key={props.i}>
@@ -249,7 +248,14 @@ const Reple = props => {
           <span>Qmzmzejj</span> {props.reple[props.i]}
         </p>
         <div className="commentLikeBox">
-          <i className="fa-solid fa-heart commentLikeHeart" />
+          <i
+            onClick={() => {
+              likeHeart === 'fa-solid'
+                ? setLikeHeart('')
+                : setLikeHeart('fa-solid');
+            }}
+            className={`fa-regular fa-heart + ${likeHeart}`}
+          />
           <p
             className="commentDeleteButton"
             onClick={() => {
@@ -264,6 +270,62 @@ const Reple = props => {
       </div>
       <p className="gray">1시간 전</p>
     </>
+  );
+};
+
+const StoryProfile = () => {
+  return (
+    <>
+      <div className="StoryProfileSet">
+        <div className="StoryProfileIcon">
+          <img src="/images/jihoonShin/car1.png" alt="null" />
+        </div>
+        <div className="StoryProfileName">
+          <h4>A_iii_1</h4>
+          <p>30분 전</p>
+        </div>
+      </div>
+      <div className="StoryProfileSet">
+        <div className="StoryProfileIcon">
+          <img src="/images/jihoonShin/car2.png" alt="null" />
+        </div>
+        <div className="StoryProfileName">
+          <h4>B_nnn_5</h4>
+          <p>15분 전</p>
+        </div>
+      </div>
+      <div className="StoryProfileSet">
+        <div className="StoryProfileIcon">
+          <img src="/images/jihoonShin/car3.png" alt="null" />
+        </div>
+        <div className="StoryProfileName">
+          <h4>C_qqq_7</h4>
+          <p>45분 전</p>
+        </div>
+      </div>
+    </>
+  );
+};
+
+const SearchModal = props => {
+  return (
+    <div className="searchModal">
+      {props.profile.map((a, i) => {
+        return (
+          <div className="SearchProfileSet">
+            <div className="SearchProfileIcon">
+              <img
+                src={`/images/jihoonShin/car${props.profile[i].image}.png`}
+                alt="null"
+              />
+            </div>
+            <div className="SearchProfileName">
+              <h4>{props.profile[i].title}</h4>
+            </div>
+          </div>
+        );
+      })}
+    </div>
   );
 };
 

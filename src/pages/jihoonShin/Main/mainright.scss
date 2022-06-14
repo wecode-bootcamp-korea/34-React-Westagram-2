@@ -6,13 +6,15 @@
   height: 100vh;
   margin-top: 50px;
   margin-left: 25px;
-
   .mainRightHead {
     display: flex;
     align-items: center;
     gap: 10px;
     width: 350px;
     height: 70px;
+    padding-left: 15px;
+    border: 1px solid rgb(221, 220, 220);
+    background-color: white;
 
     .mainRightHeadImage {
       width: 50px;
@@ -40,6 +42,7 @@
     height: 250px;
     margin-top: 10px;
     border: 1px solid rgb(221, 220, 220);
+    background-color: white;
 
     .mainRightStoryTitle {
       display: flex;
@@ -97,6 +100,7 @@
     height: 250px;
     margin-top: 20px;
     border: 1px solid rgb(221, 220, 220);
+    background-color: white;
 
     .mainRightPeopleTitle {
       display: flex;

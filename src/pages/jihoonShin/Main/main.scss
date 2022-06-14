@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
+@mixin hstyleFontsize {
+  font-size: 14px;
+}
+
 * {
   margin: 0px;
   box-sizing: border-box;
@@ -41,6 +45,7 @@
     .navbarSearch {
       width: 300px;
       height: 70px;
+      position: relative;
       input {
         width: 250px;
         margin-top: 20px;
@@ -52,6 +57,38 @@
       }
       input::placeholder {
         color: rgb(177, 177, 177);
+      }
+      .searchModal {
+        width: 249px;
+        height: 400px;
+        border: 1px solid rgb(168, 168, 168);
+        background-color: #ffffff;
+        position: absolute;
+      }
+      .SearchProfileSet {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding-top: 20px;
+
+        .SearchProfileIcon {
+          width: 40px;
+          height: 40px;
+          overflow: hidden;
+          img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+          }
+        }
+
+        .SearchProfileName {
+          h4 {
+            @include hstyleFontsize;
+          }
+        }
       }
     }
     .navbarProfile {
