@@ -5,16 +5,6 @@ import React from 'react';
 const UserComment = props => {
   return (
     <ul class="usercomment">
-      {/* <li class="eachUserComment">
-        <span>_kosora</span>
-        <p>제주도 또 가고싶다,,,</p>
-        <button class="heart">
-          <i class="fa-regular fa-heart" />
-        </button>
-        <button class="delete">
-          <i class="fa-regular fa-trash-can" />
-        </button>
-      </li> */}
       {props.replyList.map((reply, i) => (
         <li class="eachUserComment" key={i}>
           <span>_sooyuni</span>

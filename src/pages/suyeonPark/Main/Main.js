@@ -97,7 +97,10 @@ const Main = () => {
                 type="text"
                 placeholder="댓글 달기..."
                 value={inputValue}
-                onChange={e => setInputValue(e.target.value)}
+                onChange={event => {
+                  const { value } = event.target;
+                  setInputValue(value);
+                }}
                 onKeyUp={replyButtonabled}
               />
               <button

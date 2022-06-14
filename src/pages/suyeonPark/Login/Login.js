@@ -14,13 +14,27 @@ const Login = () => {
   };
   //최상위 class name을 컴포넌트 이름과 동일하게 해주면 스타일링 겹침을 줄일 수 있다.
 
-  function handleIdInput(event) {
-    setId(event.target.value);
-  }
+  //비구조화 할당 적용 전
+  // function handleIdInput(event) {
+  //   setId(event.target.value);
+  // }
 
-  function handlePwInput(event) {
-    setPw(event.target.value);
-  }
+  //비구조화 할당 적용 후
+  const handleIdInput = event => {
+    const { value } = event.target;
+    setId(value);
+  };
+
+  //비구조화 할당 적용 전
+  // function handlePwInput(event) {
+  //   setPw(event.target.value);
+  // }
+
+  //비구조화 할당 적용 후
+  const handlePwInput = event => {
+    const { value } = event.target;
+    setPw(value);
+  };
 
   const buttonColorChange = () => {
     if (id.includes('@') && pw.length >= 5) {
