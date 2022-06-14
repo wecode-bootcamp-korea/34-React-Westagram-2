@@ -1,5 +1,3 @@
-@import url('../../../styles/reset.scss');
-
 .mainPage {
   display: flex;
   justify-content: center;
@@ -114,11 +112,11 @@
 .comment {
   position: relative;
   max-width: 900px;
+  margin-bottom: 10px;
 
   svg {
     position: absolute;
     font-size: 13px;
-    margin-top: 10px;
     left: 95.4%;
   }
 }
@@ -181,12 +179,6 @@
   margin-top: 12px;
   font-size: 14px;
 }
-.nameId {
-  font-weight: bolder;
-}
-.nameInfo {
-  color: #a4a4a4;
-}
 
 .tabName {
   color: #ababab;
@@ -201,27 +193,10 @@
   }
 }
 
-.firstName,
-.secondName,
-.thirdName {
-  padding-left: 15px;
-}
-
 .main {
   .wrapper {
     display: flex;
     align-items: center;
-  }
-}
-
-.info {
-  p {
-    font-weight: bolder;
-    color: #bfbfbf;
-  }
-  a {
-    text-decoration: none;
-    color: #bfbfbf;
   }
 }
 

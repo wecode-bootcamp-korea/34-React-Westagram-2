@@ -1,5 +1,3 @@
-@import url('../../../styles/reset.scss');
-
 .rightStories {
   max-width: 448px;
   max-height: 250px;
@@ -31,9 +29,7 @@
   background-color: white;
 }
 
-.firstImg,
-.secondImg,
-.thirdImg {
+.storiesImg {
   display: inline-block;
   img {
     width: 40px;
@@ -47,10 +43,19 @@
   }
 }
 
-.storiesFirst,
-.storiesSecond,
-.storiesThird {
+.stories {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+}
+
+.storiesName {
+  padding-left: 15px;
+}
+
+.storiesNameId {
+  font-weight: bolder;
+}
+.storiesNameInfo {
+  color: #a4a4a4;
 }

@@ -1,8 +1,8 @@
 import React from 'react';
+import CommentLike from '../CommentLike/CommentLike';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
-import './commentBox.scss';
-import CommentLike from '../CommentLike/CommentLike';
+import './commentLine.scss';
 
 const CommentBox = ({ names, onRemove }) => {
   return (
