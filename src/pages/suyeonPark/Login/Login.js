@@ -7,7 +7,7 @@ const Login = () => {
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
   const [colorAbled, setColorAbled] = useState('#b2dffc');
-  const [disabled, setDisabled] = useState('disabled');
+  const [disabled, setDisabled] = useState('disabled'); //불리언 값으로 변경하는게 좋을듯.
 
   const goToMain = () => {
     navigate('/main-yeon');
@@ -72,7 +72,7 @@ const Login = () => {
               id="logInBtn"
               type="subimit" //타입을 submit으로 지정해주면 엔터가 먹힘
               onClick={goToMain}
-              style={{ backgroundColor: colorAbled }}
+              style={{ backgroundColor: colorAbled }} //삼항 연산자로 바꿀 수 잇음.
               disabled={disabled}
             >
               로그인
