@@ -18,6 +18,7 @@ const Login = () => {
   useEffect(() => {
     btnAbled();
   }, [id, pw]);
+
   const navigate = useNavigate();
 
   return (
@@ -43,6 +44,21 @@ const Login = () => {
         onClick={e => {
           if (id.includes('@') && pw.length > 4) {
             navigate('/main-hyun');
+
+            fetch('http://172.20.10.3:8000/users/signin', {
+              method: 'POST',
+              body: JSON.stringify({
+                email: id,
+                password: pw,
+              }),
+            })
+              .then(Response => Response.json())
+              .then(
+                result => (
+                  console.log('결과: ', result),
+                  localStorage.setItem('token', result.access_token)
+                )
+              );
           }
         }}
       >
