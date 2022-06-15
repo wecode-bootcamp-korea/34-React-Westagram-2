@@ -23,7 +23,7 @@ const Feed = ({
   const [comment, setComment] = useState('');
   const [like, setLike] = useState(false);
 
-  const hendleLikeClick = () => {
+  const handleLikeClick = () => {
     setLike(oldLike => !oldLike);
   };
 
@@ -52,7 +52,7 @@ const Feed = ({
         <FontAwesomeIcon
           className={`feed-like feed-action-menu${like ? ' check' : ''}`}
           icon={like ? faHeartSolid : faHeartRegular}
-          onClick={hendleLikeClick}
+          onClick={handleLikeClick}
         />
         <FontAwesomeIcon className="feed-action-menu" icon={faComment} />
         <FontAwesomeIcon

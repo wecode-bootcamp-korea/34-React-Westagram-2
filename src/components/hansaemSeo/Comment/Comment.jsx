@@ -17,7 +17,7 @@ const Comment = ({
     onDeleteComment(comment.id);
   };
 
-  const hendleLikeClick = () => {
+  const handleLikeClick = () => {
     setLike(oldLike => !oldLike);
   };
   return (
@@ -28,7 +28,7 @@ const Comment = ({
         <FontAwesomeIcon
           className={`commentLike${like ? ' check' : ''}`}
           icon={like ? faHeartSolid : faHeartRegular}
-          onClick={hendleLikeClick}
+          onClick={handleLikeClick}
         />
       ) : null}
       {isAbleDelete ? (
