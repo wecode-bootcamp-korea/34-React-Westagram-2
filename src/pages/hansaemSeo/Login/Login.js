@@ -22,11 +22,28 @@ const Login = props => {
     if (!id.includes('@')) {
       alert('전화번호 또는 이메일 형식을 확인해주세요.');
       return;
-    } else if (password.length < 6) {
+    } else if (password.length < 3) {
       alert('비밀번호를 6자 이상 입력해주세요.');
       return;
     }
-    navigate('/main-saem');
+
+    fetch('http://10.58.0.27:8000/users/signin', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: id,
+        password: password,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.message === 'SUCCESS') {
+          localStorage.setItem('access_token', result.access_token);
+
+          navigate('/main-saem');
+        } else {
+          alert(result.message);
+        }
+      });
   };
 
   const handleIdInputChange = ev => {
