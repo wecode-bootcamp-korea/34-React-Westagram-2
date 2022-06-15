@@ -1,17 +1,22 @@
-import './main.scss';
 import React from 'react';
-import '../../../styles/reset.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faSearchengin } from '@fortawesome/free-brands-svg-icons';
-import { faBookmark } from '@fortawesome/free-regular-svg-icons';
-import { useState } from 'react';
 import { faEllipsis } from '@fortawesome/free-solid-svg-icons';
+import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import AddComment from '../../../components/gwanghyun/Comment/AddComment';
+import CommentList from '../../../components/gwanghyun/Comment/CommentList';
+import { useState, useEffect } from 'react';
+import '../../../styles/reset.scss';
+import './main.scss';
+
+// import Feeds from '../../../components/gwanghyun/Comment/Feeds';
+
 const Main = () => {
   const [textInput, setTextInput] = useState('');
   const [postTextInput, setPostTextInput] = useState([]);
   const [userId] = useState('bbbb0221');
   const eventInput = e => setTextInput(e.target.value);
+  const [commentList, setCommetnList] = useState([]);
 
   const [heart, setHeart] = useState('./images/gwanghyunBaek/heart.png');
   const heartChange = () => {
@@ -56,6 +61,17 @@ const Main = () => {
       </nav>
       <div className="width_">
         <main>
+          {/* <Feeds
+          // textInput={textInput}
+          // setTextInput={setTextInput}
+          // postTextInput={postTextInput}
+          // setPostTextInput={setPostTextInput}
+          // userId={userId}
+          // eventInput={eventInput}
+          // commentList={commentList}
+          // heart={heart}
+          // heartChange={heartChange}
+          // /> */}
           <div className="feeds">
             <div className="article">
               <div className="main_post">
@@ -149,11 +165,13 @@ const Main = () => {
               </div>
               <div className="feeds_post">
                 <span>bbbb_0221</span>
-                <span>나는 왜 안돼 </span>
+                <span>아 너어 무 우 잘 돼 ㅡㅡ </span>
                 <span className="after_view"> 더 보기</span>
                 <div className="hour_ago">
                   <span>1시간 전</span>
                 </div>
+
+                <CommentList />
 
                 {postTextInput.map((comment, index) => {
                   return (
