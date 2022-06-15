@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.scss';
-const Footer = (props) => {
+const Footer = props => {
   return (
     <footer className="footer">
       <p className="info">
