@@ -3,7 +3,7 @@
 import React from 'react';
 import './login.scss';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Login = () => {
   let [inputId, setInputId] = useState('');
@@ -11,10 +11,9 @@ const Login = () => {
 
   let [btnOnoff, setBtnOnoff] = useState(false);
 
-
   function inputIdPw() {
     {
-    (inputId.indexOf('@') !== -1) && (inputPw.length >= 5) 
+    (inputId.indexOf('@') !== -1) && (inputPw.length >= 5)
       ? setBtnOnoff(true) 
       : setBtnOnoff(false)
     }
@@ -24,9 +23,16 @@ const Login = () => {
   
   const navigate = useNavigate();
   const btnGoMain = () => {
-    (btnOnoff === true)
-    ? navigate('/main-hoon')
-    : alert('전송안됨')
+    fetch("http://10.58.6.158:8000/users/signin", {
+      method: "POST",
+      body: JSON.stringify({
+        email: inputId,
+        password: inputPw,
+        }),
+      })
+      .then((response) => response.json())
+      .then((result) => localStorage.setItem('id_key', result.access_token))
+      navigate('/main-hoon')
   };
 
   return (

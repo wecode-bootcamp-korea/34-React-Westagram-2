@@ -1,16 +1,24 @@
 import React from 'react';
+import Reple from '../../../components/jihoonShin/Reple';
+import StoryProfile from '../../../components/jihoonShin/StoryProfile';
 import './main.scss';
 import './mainleft.scss';
 import './mainright.scss';
-import { useState } from 'react';
-import profileData from './searchData';
+import { useState, useEffect } from 'react';
 
 const Main = () => {
   let [reple, setReple] = useState([]);
   let [inputValue, setInputValue] = useState('');
   let [buttonModal, setButtonModal] = useState(false);
-  let [profile] = useState(profileData);
-  let [searchValue, setSearchValue] = useState('');
+
+  const [searchData, setSearchData] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:3000/data/searchData.json', { method: 'GET' })
+      .then(res => res.json())
+      .then(data => {
+        setSearchData(data);
+      });
+  }, []);
 
   const inputReple = e => {
     e.preventDefault();
@@ -40,18 +48,23 @@ const Main = () => {
           <input
             type="text"
             placeholder="검색"
-            onChange={e => {
-              setSearchValue(e.target.value);
-              {
-                profile.filter(() => {});
-              }
-            }}
+            // onChange={e => {
+            //   setSearchValue(e.target.value);
+            //   {
+            //     profile.filter(() => {});
+            //   }
+            // }}
             onClick={() => {
               setButtonModal(!buttonModal);
             }}
           />
 
-          {buttonModal === true ? <SearchModal profile={profile} /> : null}
+          {buttonModal === true ? (
+            <SearchModal
+              searchData={searchData}
+              setSearchData={setSearchData}
+            />
+          ) : null}
         </div>
         <div className="navbarProfile navbarPadding">
           <div className="navbarProfileIcon">
@@ -119,9 +132,10 @@ const Main = () => {
               </p>
             </div>
             <div className="contentsMessage">
-              <p>
-                <span>abc_ram</span> 아무거나 입력
-              </p>
+              {searchData.map((ele, index) => {
+                return <CommentReple searchData={searchData} index={index} />;
+              })}
+
               {reple.map((a, i) => {
                 return (
                   <Reple
@@ -237,95 +251,31 @@ const Main = () => {
     </div>
   );
 };
-
-const Reple = props => {
-  let [likeHeart, setLikeHeart] = useState('');
-
-  return (
-    <>
-      <div className="contentsMessageBox" key={props.i}>
-        <p>
-          <span>Qmzmzejj</span> {props.reple[props.i]}
-        </p>
-        <div className="commentLikeBox">
-          <i
-            onClick={() => {
-              likeHeart === 'fa-solid'
-                ? setLikeHeart('')
-                : setLikeHeart('fa-solid');
-            }}
-            className={`fa-regular fa-heart + ${likeHeart}`}
-          />
-          <p
-            className="commentDeleteButton"
-            onClick={() => {
-              let newReple = [...props.reple];
-              newReple.splice(props.i, 1);
-              props.setReple(newReple);
-            }}
-          >
-            X
-          </p>
-        </div>
-      </div>
-      <p className="gray">1시간 전</p>
-    </>
-  );
-};
-
-const StoryProfile = () => {
-  return (
-    <>
-      <div className="StoryProfileSet">
-        <div className="StoryProfileIcon">
-          <img src="/images/jihoonShin/car1.png" alt="null" />
-        </div>
-        <div className="StoryProfileName">
-          <h4>A_iii_1</h4>
-          <p>30분 전</p>
-        </div>
-      </div>
-      <div className="StoryProfileSet">
-        <div className="StoryProfileIcon">
-          <img src="/images/jihoonShin/car2.png" alt="null" />
-        </div>
-        <div className="StoryProfileName">
-          <h4>B_nnn_5</h4>
-          <p>15분 전</p>
-        </div>
-      </div>
-      <div className="StoryProfileSet">
-        <div className="StoryProfileIcon">
-          <img src="/images/jihoonShin/car3.png" alt="null" />
-        </div>
-        <div className="StoryProfileName">
-          <h4>C_qqq_7</h4>
-          <p>45분 전</p>
-        </div>
-      </div>
-    </>
-  );
-};
-
 const SearchModal = props => {
   return (
     <div className="searchModal">
-      {props.profile.map((a, i) => {
+      {props.searchData.map((ele, index) => {
         return (
           <div className="SearchProfileSet">
             <div className="SearchProfileIcon">
-              <img
-                src={`/images/jihoonShin/car${props.profile[i].image}.png`}
-                alt="null"
-              />
+              <img src="/images/jihoonShin/car1.png" alt="null" />
             </div>
             <div className="SearchProfileName">
-              <h4>{props.profile[i].title}</h4>
+              <h4>ddd</h4>
             </div>
           </div>
         );
       })}
     </div>
+  );
+};
+
+const CommentReple = props => {
+  return (
+    <p>
+      <span>{props.searchData[props.index].title}</span>
+      {props.searchData[props.index].content}
+    </p>
   );
 };
 
