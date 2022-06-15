@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import FooterBox from './FooterBox';
 import './main.scss';
 import UserComment from './UserComment';
 
@@ -35,7 +36,7 @@ const Main = () => {
         <div class="navBar">
           <div class="westaLogo">
             <i class="fa-brands fa-instagram" />
-            <a href="">Westagram</a>
+            <a href="/">Westagram</a>
           </div>
           <div class="searchBar">
             <i class="fa-solid fa-magnifying-glass" />
@@ -81,10 +82,10 @@ const Main = () => {
           <div class="myPost">
             <span id="myId">_sooyuni</span>
             <p>제주도 첫 날에 갔던 스누피 가든...</p>
-            <a href="">더 보기</a>
+            <a href="/">더 보기</a>
           </div>
           <p class="showCommentAll">
-            댓글 <span>{replyList.length}개 모두 보기</span>
+            댓글 <span>{replyList.length + 3}개 모두 보기</span>
           </p>
           <UserComment replyList={replyList} setReplyList={setReplyList} />
           <div class="writingTime">
@@ -118,14 +119,14 @@ const Main = () => {
           <div class="myWestaInfo">
             <img alt="userprofile" src="./images/suyeonPark/profile.jpg" />
             <div class="myWestaInfoUser">
-              <a href="">_sooyuni</a>
+              <a href="/">_sooyuni</a>
               <span>수연</span>
             </div>
           </div>
           <div class="story">
             <div class="storyInText">
               <span>스토리</span>
-              <a href="">모두 보기</a>
+              <a href="/">모두 보기</a>
             </div>
             <ul class="storyInUsers">
               <li>
@@ -173,7 +174,7 @@ const Main = () => {
           <div class="recommendForMe">
             <div class="recommendInText">
               <span>회원님을 위한 추천</span>
-              <a href="">모두 보기</a>
+              <a href="/">모두 보기</a>
             </div>
             <ul class="recommendInUsers">
               <li>
@@ -185,7 +186,7 @@ const Main = () => {
                   <span class="mainRightUserId">_jjoggumi</span>
                   <span class="mainRightGrayText">_sooyuni님 외 12명이...</span>
                 </div>
-                <a href="">팔로우</a>
+                <a href="/">팔로우</a>
               </li>
               <li>
                 <img
@@ -213,34 +214,7 @@ const Main = () => {
               </li>
             </ul>
           </div>
-          <footer>
-            <div class="footerInfoLink">
-              <a href="">Westagram 정보</a>
-              <span>·</span>
-              <a href="">지원</a>
-              <span>·</span>
-              <a href="">홍보 센터</a>
-              <span>·</span>
-              <a href="">API</a>
-              <span>·</span>
-              <br />
-              <a href="">채용 정보</a>
-              <span>·</span>
-              <a href="">개인정보처리방침</a>
-              <span>·</span>
-              <a href="">약관</a>
-              <span>·</span>
-              <br />
-              <a href="">디렉터리</a>
-              <span>·</span>
-              <a href="">프로필</a>
-              <span>·</span>
-              <a href="">해시태그</a>
-              <span>·</span>
-              <a href="">언어</a>
-            </div>
-            <span>&copy; 2022 WESTARAM</span>
-          </footer>
+          <FooterBox />
         </div>
       </main>
     </div>

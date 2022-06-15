@@ -14,21 +14,11 @@ const Login = () => {
   };
   //최상위 class name을 컴포넌트 이름과 동일하게 해주면 스타일링 겹침을 줄일 수 있다.
 
-  //비구조화 할당 적용 전
-  // function handleIdInput(event) {
-  //   setId(event.target.value);
-  // }
-
   //비구조화 할당 적용 후
   const handleIdInput = event => {
     const { value } = event.target;
     setId(value);
   };
-
-  //비구조화 할당 적용 전
-  // function handlePwInput(event) {
-  //   setPw(event.target.value);
-  // }
 
   //비구조화 할당 적용 후
   const handlePwInput = event => {
@@ -71,7 +61,25 @@ const Login = () => {
             <button
               id="logInBtn"
               type="subimit" //타입을 submit으로 지정해주면 엔터가 먹힘
-              onClick={goToMain}
+              onClick={e => {
+                e.preventDefault();
+                fetch('http://10.58.6.173:8000/users/signin', {
+                  method: 'POST',
+                  body: JSON.stringify({
+                    email: id,
+                    password: pw,
+                  }),
+                })
+                  .then(response => response.json())
+                  .then(result => {
+                    if (result.access_token) {
+                      localStorage.setItem('token', result.access_token);
+                      goToMain();
+                    } else {
+                      alert('아이디 또는 비밀번호가 틀렸습니다.');
+                    }
+                  });
+              }}
               style={{ backgroundColor: colorAbled }} //삼항 연산자로 바꿀 수 잇음.
               disabled={disabled}
             >
@@ -80,7 +88,7 @@ const Login = () => {
             {/*버튼 타입을 꼭 지정해줄 것 */}
           </form>
           <footer>
-            <a href="">비밀번호를 잊으셨나요?</a>
+            <a href="/">비밀번호를 잊으셨나요?</a>
           </footer>
         </div>
       </div>
