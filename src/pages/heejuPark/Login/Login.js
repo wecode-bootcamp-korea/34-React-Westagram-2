@@ -11,18 +11,25 @@ const Login = () => {
   useEffect(() => {
     id.includes('@') && pw.length > 4 ? setActivate(false) : setActivate(true);
   }, [id, pw]);
-
   // Main페이지로 이동
   const navigate = useNavigate();
   const goToMain = e => {
     e.preventDefault();
-    if (id !== pw) return;
-    if (id.length > 0 && pw.length > 0 && id === pw) {
-      // console.log("enter");
-      navigate('/main-hee');
-    }
+    fetch('http://10.58.0.118:8000/users/login', {
+      method: 'POST',
+      body: JSON.stringify({ email: id, password: pw }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        console.log('result:', result);
+        localStorage.setItem('token', result.ACCESS_TOKEN);
+        if (localStorage.getItem('token') === result.ACCESS_TOKEN) {
+          navigate('/main-hee');
+        } else {
+          alert('이메일과 비밀번호를 확인해주세요');
+        }
+      });
   };
-
   return (
     <div className="login">
       <div className="wrapper">

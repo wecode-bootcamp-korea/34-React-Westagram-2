@@ -47,6 +47,9 @@
     border: 1px solid #dbdada;
     border-radius: 4px;
     background-color: #faf9f9;
+    &:focus {
+      outline: none;
+    }
   }
 
   &::placeholder {
@@ -61,7 +64,6 @@
   }
 
   &:focus-within {
-    border-style: none;
     svg {
       animation: 0.5s moveLeft ease-in-out forwards;
     }

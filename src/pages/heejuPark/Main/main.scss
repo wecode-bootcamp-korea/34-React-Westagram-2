@@ -82,7 +82,7 @@
     height: 20px;
     border-radius: 50%;
     border-color: #e5e5e5;
-    padding-left: 20px;
+    margin-left: 20px;
   }
 }
 
@@ -200,9 +200,9 @@
   }
 }
 
-.expContents div:nth-child(4) {
-  display: none;
-}
+// .expContents div:nth-child(4) {
+//   display: none;
+// }
 
 /* Mission 9. 반응형 구현 : 페이지 일정 너비 축소 시 스토리, 아이디 추천창 숨기기 */
 @media screen and (max-width: 1380px) {
