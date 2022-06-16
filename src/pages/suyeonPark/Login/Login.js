@@ -7,7 +7,7 @@ const Login = () => {
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
   const [colorAbled, setColorAbled] = useState('#b2dffc');
-  const [disabled, setDisabled] = useState('disabled'); //불리언 값으로 변경하는게 좋을듯.
+  const [disabled, setDisabled] = useState(true); //불리언 값으로 변경하는게 좋을듯.
 
   const goToMain = () => {
     navigate('/main-yeon');
@@ -29,10 +29,10 @@ const Login = () => {
   const buttonColorChange = () => {
     if (id.includes('@') && pw.length >= 5) {
       setColorAbled('#0195f7');
-      setDisabled('');
+      setDisabled(!true);
     } else {
       setColorAbled('#b2dffc');
-      setDisabled('disabled');
+      setDisabled(true);
     }
   };
 

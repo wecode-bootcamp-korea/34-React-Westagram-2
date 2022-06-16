@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import FooterBox from './FooterBox';
 import './main.scss';
+import StoryInUsers from './StoryInUsers';
 import UserComment from './UserComment';
 
 const Main = () => {
@@ -13,15 +14,15 @@ const Main = () => {
   };
 
   const [colorAbled, setColorAbled] = useState('#b2dffc'); //조건에 부합하면 색 바뀜
-  const [disabled, setDisabled] = useState('disabled'); //조건에 부합하기 전까지 버튼 클릭 막음
+  const [disabled, setDisabled] = useState(true); //조건에 부합하기 전까지 버튼 클릭 막음
 
   const replyButtonabled = () => {
     if (inputValue.length > 0) {
       setColorAbled('#0195f7');
-      setDisabled('');
+      setDisabled(false);
     } else {
       setColorAbled('#b2dffc');
-      setDisabled('disabled');
+      setDisabled(true);
     }
   };
 
@@ -128,48 +129,7 @@ const Main = () => {
               <span>스토리</span>
               <a href="/">모두 보기</a>
             </div>
-            <ul class="storyInUsers">
-              <li>
-                <img
-                  alt="story user pictures"
-                  src="./images/suyeonPark/aeong.jpg"
-                />
-                <div class="allListInDiv">
-                  <span class="mainRightUserId">_imAeong</span>
-                  <span class="mainRightGrayText">16분 전</span>
-                </div>
-              </li>
-              <li>
-                <img
-                  alt="story user pictures"
-                  src="./images/suyeonPark/dori.jpg"
-                />
-                <div class="allListInDiv">
-                  <span class="mainRightUserId">_imDori</span>
-                  <span class="mainRightGrayText">36분 전</span>
-                </div>
-              </li>
-              <li>
-                <img
-                  alt="story user pictures"
-                  src="./images/suyeonPark/halbae.jpg"
-                />
-                <div class="allListInDiv">
-                  <span class="mainRightUserId">_imHalbae</span>
-                  <span class="mainRightGrayText">1시간 전</span>
-                </div>
-              </li>
-              <li>
-                <img
-                  alt="story user pictures"
-                  src="./images/suyeonPark/halbbu.jpg"
-                />
-                <div class="allListInDiv">
-                  <span class="mainRightUserId">_imBbuni</span>
-                  <span class="mainRightGrayText">2시간 전</span>
-                </div>
-              </li>
-            </ul>
+            <StoryInUsers />
           </div>
           <div class="recommendForMe">
             <div class="recommendInText">
