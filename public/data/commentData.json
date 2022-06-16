@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "userName": "jejus",
+    "content": "A - men",
+    "isLiked": true
+  },
+  {
+    "id": 2,
+    "userName": "g-dragon",
+    "content": "i miss jenny",
+    "isLiked": false
+  },
+  {
+    "id": 3,
+    "userName": "jayPark",
+    "content": "원소주 많이 사랑해주세요.",
+    "isLiked": false
+  },
+  {
+    "id": 4,
+    "userName": "Son",
+    "content": "i'm world class.",
+    "isLiked": false
+  },
+  {
+    "id": 5,
+    "userName": "Bob Marley",
+    "content": "i like ballad",
+    "isLiked": false
+  },
+  {
+    "id": 6,
+    "userName": "Gwang hyun",
+    "content": "i'm so tired.",
+    "isLiked": false
+  }
+]
