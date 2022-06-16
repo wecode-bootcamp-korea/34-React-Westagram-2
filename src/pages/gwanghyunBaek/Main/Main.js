@@ -8,6 +8,7 @@ import { useState } from 'react';
 import '../../../styles/reset.scss';
 import './main.scss';
 import Feeds from '../../../components/gwanghyun/Comment/Feeds';
+import MainRightMiddle from '../../../components/gwanghyun/Comment/MainRightMiddle';
 
 // import Feeds from '../../../components/gwanghyun/Comment/Feeds';
 
@@ -223,7 +224,8 @@ const Main = () => {
                 <span>스토리</span>
                 <span>모두 보기</span>
               </div>
-              <div className="story_profile">
+              <MainRightMiddle />
+              {/* <div className="story_profile">
                 <img
                   className="story_img1"
                   src="/images/gwanghyunBaek/hayeon1.jpeg"
@@ -288,7 +290,7 @@ const Main = () => {
                   <span>hayeon</span>
                   <span>2시간 전</span>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="right-bottom">
               <div className="follow_top">
