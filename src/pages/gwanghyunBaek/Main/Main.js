@@ -1,13 +1,13 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faSearchengin } from '@fortawesome/free-brands-svg-icons';
-import { faEllipsis } from '@fortawesome/free-solid-svg-icons';
-import { faBookmark } from '@fortawesome/free-regular-svg-icons';
-import AddComment from '../../../components/gwanghyun/Comment/AddComment';
-import CommentList from '../../../components/gwanghyun/Comment/CommentList';
-import { useState, useEffect } from 'react';
+// import { faEllipsis } from '@fortawesome/free-solid-svg-icons';
+// import { faBookmark } from '@fortawesome/free-regular-svg-icons';
+// import AddComment from '../../../components/gwanghyun/Comment/AddComment';
+import { useState } from 'react';
 import '../../../styles/reset.scss';
 import './main.scss';
+import Feeds from '../../../components/gwanghyun/Comment/Feeds';
 
 // import Feeds from '../../../components/gwanghyun/Comment/Feeds';
 
@@ -61,18 +61,18 @@ const Main = () => {
       </nav>
       <div className="width_">
         <main>
-          {/* <Feeds
-          // textInput={textInput}
-          // setTextInput={setTextInput}
-          // postTextInput={postTextInput}
-          // setPostTextInput={setPostTextInput}
-          // userId={userId}
-          // eventInput={eventInput}
-          // commentList={commentList}
-          // heart={heart}
-          // heartChange={heartChange}
-          // /> */}
-          <div className="feeds">
+          <Feeds
+            textInput={textInput}
+            setTextInput={setTextInput}
+            postTextInput={postTextInput}
+            setPostTextInput={setPostTextInput}
+            userId={userId}
+            eventInput={eventInput}
+            commentList={commentList}
+            heart={heart}
+            heartChange={heartChange}
+          />
+          {/* <div className="feeds">
             <div className="article">
               <div className="main_post">
                 <div className="main_profile">
@@ -203,7 +203,7 @@ const Main = () => {
                 <button className="comment_post">게시</button>
               </form>
             </div>
-          </div>
+          </div> */}
           <div className="main-right">
             <div className="right-top">
               <div className="main_profile_name right_profile_name">

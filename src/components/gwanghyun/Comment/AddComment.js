@@ -29,7 +29,7 @@ const AddComment = ({
           onClick={heartPostChange}
           className="post_heart"
           src={heartImagePass}
-          alt=""
+          alt="heartImage"
         />
         <button
           onClick={() => {

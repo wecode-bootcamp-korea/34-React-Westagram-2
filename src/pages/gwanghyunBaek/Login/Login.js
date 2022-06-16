@@ -1,6 +1,6 @@
 import React from 'react';
 import './login.scss';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../../../styles/reset.scss';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -44,7 +44,6 @@ const Login = () => {
         onClick={e => {
           if (id.includes('@') && pw.length > 4) {
             navigate('/main-hyun');
-
             fetch('http://172.20.10.3:8000/users/signin', {
               method: 'POST',
               body: JSON.stringify({
