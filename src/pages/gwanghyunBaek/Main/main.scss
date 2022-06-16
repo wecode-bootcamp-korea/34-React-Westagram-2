@@ -6,6 +6,7 @@
     margin: 0 auto;
     height: 100vh;
     display: flex;
+    flex-direction: column;
 
     .feeds {
       margin-left: 80px;
@@ -81,7 +82,12 @@
             }
           }
         }
-
+        .feeds_post_id {
+          font-weight: 600;
+        }
+        .feeds_post_mention {
+          margin-left: 10px;
+        }
         .hour_ago span {
           font-size: 12px;
           opacity: 0.5;
@@ -200,162 +206,167 @@
         }
       }
     }
-    .right-top {
-      margin-left: 10px;
-      width: 319px;
-      height: 15%;
-      display: flex;
-      align-items: flex-end;
+    .main-right {
+      position: absolute;
+      right: 70px;
+      .right_footer {
+        margin: 30px 20px;
 
-      .right_profile_name {
-        display: flex;
-        margin: 0 0 20px 0;
-
-        .right_profile_img {
-          width: 45px;
-          height: 45px;
-          border-radius: 20px;
-          margin-top: 55px;
-          margin-left: 5px;
+        .hyper {
+          margin-bottom: 25px;
         }
-        .right_profile_id {
-          display: flex;
-          flex-direction: column;
-          margin-top: 65px;
-          margin-left: 10px;
+        .hyper a {
+          color: #d0d0d0;
+          font-size: 13px;
         }
-        .right_profile_id span:first-child {
-          font-weight: 600;
-        }
-        .right_profile_id span:last-child {
-          font-size: 15px;
+        .instalink {
+          color: #d0d0d0;
+          font-size: 13px;
         }
       }
-    }
-    .right-middle1 {
-      margin-left: 10px;
-      width: 319px;
-      height: 256px;
-      margin-bottom: 10px;
-      background-color: white;
-      border-radius: 10px;
-      border: 1px solid #dfdfdf;
-      overflow-y: scroll;
-      .story_profile {
-        display: flex;
-        margin-bottom: 10px;
 
-        .story_img1 {
-          margin-left: 10px;
-          width: 35px;
-          height: 35px;
-          border-radius: 25px;
-          border: 2px solid red;
-        }
-        .story_name1 {
+      .right-bottom {
+        margin-left: 10px;
+        width: 319px;
+        height: 180px;
+        background-color: white;
+        border-radius: 10px;
+        border: 1px solid #dfdfdf;
+
+        .follow_top {
           display: flex;
-          margin-top: 5px;
-          margin-left: 10px;
-          flex-direction: column;
+          justify-content: space-between;
         }
-        .story_name1 span:last-child {
-          font-size: 10px;
-          margin-top: 2px;
+        .follow_top span {
+          margin: 10px 15px;
+          font-size: 14px;
+        }
+        .follow_top span:first-child {
+          opacity: 0.5;
+        }
+        .follow_bottom {
+          margin-left: 10px;
+          margin-top: 5px;
+          margin-bottom: 10px;
+          display: flex;
+          justify-content: space-between;
+
+          .story_follow {
+            display: flex;
+
+            .story_img_bottom {
+              width: 30px;
+              height: 30px;
+              border-radius: 15px;
+            }
+
+            .story_name_bottom {
+              margin-left: 10px;
+              display: flex;
+              flex-direction: column;
+            }
+            .story_name_bottom span:first-child {
+              font-size: 14px;
+              font-weight: 600;
+            }
+
+            .story_name_bottom span:last-child {
+              font-size: 11px;
+              opacity: 0.5;
+              margin-top: 2px;
+            }
+          }
+        }
+        .follow_bottom button {
+          margin: 0 auto;
+          height: 30px;
+          width: 50px;
+          font-size: 14px;
+          color: #0c9af6;
+          background-color: white;
+          margin-right: 20px;
+          border-style: none;
+        }
+      }
+      .right-middle1 {
+        margin-left: 10px;
+        width: 319px;
+        height: 256px;
+        margin-bottom: 10px;
+        background-color: white;
+        border-radius: 10px;
+        border: 1px solid #dfdfdf;
+        overflow-y: scroll;
+        .story_profile {
+          display: flex;
+          margin-bottom: 10px;
+
+          .story_img1 {
+            margin-left: 10px;
+            width: 35px;
+            height: 35px;
+            border-radius: 25px;
+            border: 2px solid red;
+          }
+          .story_name1 {
+            display: flex;
+            margin-top: 5px;
+            margin-left: 10px;
+            flex-direction: column;
+          }
+          .story_name1 span:last-child {
+            font-size: 10px;
+            margin-top: 2px;
+            opacity: 0.5;
+          }
+        }
+
+        .story {
+          display: flex;
+          justify-content: space-between;
+        }
+        .story span {
+          margin: 10px 15px;
+          font-size: 14px;
+        }
+        .story span:first-child {
           opacity: 0.5;
         }
       }
-
-      .story {
-        display: flex;
-        justify-content: space-between;
+      .right-middle1::-webkit-scrollbar {
+        display: none;
       }
-      .story span {
-        margin: 10px 15px;
-        font-size: 14px;
-      }
-      .story span:first-child {
-        opacity: 0.5;
-      }
-    }
-    .right-middle1::-webkit-scrollbar {
-      display: none;
-    }
-    .right-bottom {
-      margin-left: 10px;
-      width: 319px;
-      height: 180px;
-      background-color: white;
-      border-radius: 10px;
-      border: 1px solid #dfdfdf;
-
-      .follow_top {
-        display: flex;
-        justify-content: space-between;
-      }
-      .follow_top span {
-        margin: 10px 15px;
-        font-size: 14px;
-      }
-      .follow_top span:first-child {
-        opacity: 0.5;
-      }
-      .follow_bottom {
+      .right-top {
         margin-left: 10px;
-        margin-top: 5px;
-        margin-bottom: 10px;
+        width: 319px;
+        height: 15%;
         display: flex;
-        justify-content: space-between;
+        align-items: flex-end;
 
-        .story_follow {
+        .right_profile_name {
           display: flex;
+          margin: 0 0 20px 0;
 
-          .story_img_bottom {
-            width: 30px;
-            height: 30px;
-            border-radius: 15px;
+          .right_profile_img {
+            width: 45px;
+            height: 45px;
+            border-radius: 20px;
+            margin-top: 55px;
+            margin-left: 5px;
           }
-
-          .story_name_bottom {
-            margin-left: 10px;
+          .right_profile_id {
             display: flex;
             flex-direction: column;
+            margin-top: 65px;
+            margin-left: 10px;
           }
-          .story_name_bottom span:first-child {
-            font-size: 14px;
+          .right_profile_id span:first-child {
             font-weight: 600;
           }
-
-          .story_name_bottom span:last-child {
-            font-size: 11px;
-            opacity: 0.5;
-            margin-top: 2px;
+          .right_profile_id span:last-child {
+            font-size: 15px;
           }
         }
-      }
-      .follow_bottom button {
-        margin: 0 auto;
-        height: 30px;
-        width: 50px;
-        font-size: 14px;
-        color: #0c9af6;
-        background-color: white;
-        margin-right: 20px;
-        border-style: none;
-      }
-    }
-    .right_footer {
-      margin: 30px 20px;
-
-      .hyper {
-        margin-bottom: 25px;
-      }
-      .hyper a {
-        color: #d0d0d0;
-        font-size: 13px;
-      }
-      .instalink {
-        color: #d0d0d0;
-        font-size: 13px;
       }
     }
   }
