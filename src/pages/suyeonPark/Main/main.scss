@@ -1,0 +1,475 @@
+body {
+  line-height: normal !important;
+}
+.main {
+  margin: 0;
+  background-color: #fafafa;
+  input:focus,
+  i:focus,
+  a:focus,
+  button:focus {
+    outline: none;
+  }
+  .navigationBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #dbdbdb;
+    z-index: 10;
+
+    .navBar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 935px;
+      height: 60px;
+
+      .westaLogo {
+        a {
+          padding-left: 10px;
+          color: black;
+          font-size: 29px;
+          font-family: 'Lobster', cursive;
+          text-decoration: none;
+        }
+
+        i {
+          padding-right: 15px;
+          border-right: 1px solid black;
+          font-size: 29px;
+        }
+      }
+
+      .searchBar {
+        display: flex;
+        align-items: center;
+        width: 268px;
+        height: 36px;
+        padding: 0px 16px;
+        background-color: #efefef;
+        border-radius: 8px;
+
+        i {
+          flex: 1;
+          color: #9d9d9d;
+          font-size: 15px;
+        }
+
+        input {
+          flex: 9;
+          height: 25px;
+          padding: 0px;
+          color: #9d9d9d;
+          background-color: transparent;
+          border: none;
+          font-size: 15px;
+        }
+      }
+
+      .emoji {
+        i {
+          padding-left: 24px;
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  .mainBox {
+    position: relative;
+    width: 821px;
+    margin: 0 auto;
+
+    .feeds {
+      position: absolute;
+      top: 120px;
+      width: 470px;
+      height: auto;
+      background-color: #ffffff;
+      border: 1px solid #dbdbdb;
+      border-radius: 8px;
+
+      img {
+        width: 100%;
+        height: 485px;
+      }
+
+      .profile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 56px;
+
+        i {
+          margin-right: 12px;
+          font-size: 24px;
+        }
+
+        header {
+          display: flex;
+          align-items: center;
+          margin: 8px 12px;
+
+          img {
+            width: 32px;
+            height: 32px;
+            border-radius: 16px;
+          }
+          span {
+            margin-left: 10px;
+            font-size: 18px;
+            font-weight: bold;
+          }
+        }
+      }
+      .feedButton {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 46px;
+
+        button:last-child {
+          position: absolute;
+          right: 12px;
+        }
+        button {
+          padding: 0 0 0 12px;
+          background-color: transparent;
+          border: none;
+          font-size: 24px;
+        }
+      }
+
+      .replyBox {
+        display: flex;
+        align-items: center;
+        margin: 0 12px 8px 12px;
+
+        img {
+          width: 18px;
+          height: 18px;
+          margin-right: 5px;
+          border-radius: 9px;
+        }
+        p {
+          margin: 0;
+          font-size: 12px;
+          span {
+            font-weight: bold;
+          }
+        }
+      }
+      .myPost {
+        display: flex;
+        align-items: center;
+        margin: 0 12px 4px 12px;
+        font-size: 12px;
+
+        span {
+          margin-right: 5px;
+          font-weight: bold;
+        }
+        a {
+          margin-left: 5px;
+          color: #a5a6a8;
+          font-weight: bold;
+          text-decoration: none;
+        }
+      }
+
+      .usercomment {
+        margin: 0;
+        padding: 0;
+
+        .eachUserComment {
+          position: relative;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          margin: 0 0 4px 12px;
+          font-size: 12px;
+
+          span {
+            margin-right: 5px;
+            font-weight: bold;
+          }
+
+          .heart {
+            position: absolute;
+            right: 36px;
+            padding: 0;
+            background-color: transparent;
+            border: 0;
+
+            i {
+              color: #a5a6a8;
+              font-size: 12px;
+            }
+          }
+
+          .delete {
+            position: absolute;
+            right: 12px;
+            padding: 0;
+            background-color: transparent;
+            border: 0;
+
+            i {
+              color: #a5a6a8;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+      .showCommentAll {
+        margin-left: 12px;
+        margin-bottom: 4px;
+        color: #a5a6a8;
+        font-size: 12px;
+      }
+      .writingTime {
+        margin-left: 12px;
+        margin-bottom: 4px;
+        color: #a5a6a8;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      .myComment {
+        form {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          height: 49px;
+          padding: 0px 12px;
+          border-top: 1px solid #dbdbdb;
+
+          input {
+            flex: 9;
+            height: 20px;
+            border: 0;
+            font-size: 12px;
+          }
+
+          button {
+            flex: 1;
+            height: 20px;
+            padding: 0;
+            color: #c1e2f8;
+            background-color: #ffffff;
+            border: 0;
+            font-size: 12px;
+            text-align: right;
+            font-weight: bolder;
+          }
+        }
+      }
+    }
+
+    .mainRight {
+      position: fixed;
+      top: 120px;
+      right: 50%;
+      width: 319px;
+      height: 500px;
+      margin-right: -410.5px;
+
+      .myWestaInfo {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+
+        img {
+          width: 56px;
+          margin: 0 10px;
+          border-radius: 50%;
+        }
+
+        .myWestaInfoUser {
+          display: flex;
+          flex-direction: column;
+
+          a {
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+          }
+
+          span {
+            color: #a5a6a8;
+            font-size: 15px;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .story {
+        width: 100%;
+        height: 230px;
+        padding: 12px 12px 0px 12px;
+        background-color: #ffffff;
+        border: 1px solid #dbdbdb;
+        border-radius: 8px;
+
+        .storyInText {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 12px;
+          font-weight: bold;
+
+          span {
+            color: #a5a6a8;
+          }
+
+          a {
+            color: black;
+            text-decoration: none;
+          }
+        }
+
+        .storyInUsers {
+          height: 192px;
+          margin: 8px 0;
+          padding: 0;
+          overflow: auto;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+          li {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 8px;
+
+            img {
+              width: 50px;
+              height: 50px;
+              margin-right: 10px;
+              background-image: linear-gradient(#fff, #fff),
+                linear-gradient(to right, red 0%, orange 100%);
+              background-origin: border-box;
+              background-clip: content-box, border-box;
+              border: 3px solid transparent;
+              border-radius: 50%;
+            }
+
+            .allListInDiv {
+              display: flex;
+              flex-direction: column;
+
+              .mainRightUserId {
+                color: black;
+                font-weight: bold;
+              }
+
+              .mainRightGrayText {
+                color: #a5a6a8;
+              }
+            }
+          }
+        }
+      }
+
+      .recommendForMe {
+        width: 100%;
+        //height: 200px;
+        margin: 16px 0;
+        padding: 12px 12px 0px 12px;
+        background-color: #ffffff;
+        border: 1px solid #dbdbdb;
+        border-radius: 8px;
+
+        .recommendInText {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 12px;
+          font-weight: bold;
+
+          span {
+            color: #a5a6a8;
+          }
+
+          a {
+            color: black;
+            text-decoration: none;
+          }
+        }
+
+        .recommendInUsers {
+          padding: 0;
+          list-style: none;
+
+          li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+
+            a {
+              position: absolute;
+              right: 0;
+              color: #0195f7;
+              font-weight: bold;
+              text-decoration: none;
+            }
+
+            img {
+              width: 40px;
+              height: 40px;
+              margin-right: 10px;
+              border-radius: 50%;
+            }
+
+            .allListInDiv {
+              display: flex;
+              flex-direction: column;
+
+              .mainRightUserId {
+                color: black;
+                font-weight: bold;
+              }
+
+              .mainRightGrayText {
+                color: #a5a6a8;
+              }
+            }
+          }
+        }
+      }
+
+      .footerBox {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        color: #d7d7d7;
+        font-size: 14px;
+
+        .footerInfoLink {
+          display: flex;
+          flex-wrap: wrap;
+          margin-bottom: 16px;
+          font-size: 14px;
+
+          a {
+            color: #d7d7d7;
+            text-decoration: none;
+          }
+          span {
+            margin: 0 1.5px;
+          }
+        }
+      }
+    }
+  }
+}
