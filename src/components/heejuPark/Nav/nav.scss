@@ -1,0 +1,87 @@
+@keyframes moveLeft {
+  0% {
+    left: 38%;
+  }
+  100% {
+    left: 6%;
+  }
+}
+@keyframes moveRight {
+  0% {
+    left: 6%;
+  }
+  100% {
+    left: 38%;
+  }
+}
+
+.navbar {
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+  border-bottom: 1px solid #eeeeee;
+  background-color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  z-index: 10;
+}
+.westaLogo {
+  font-size: 30px;
+  border-right: 1px solid black;
+  padding-right: 20px;
+}
+.westaTitle {
+  font-family: 'Lobster', cursive;
+  font-size: 30px;
+  padding-left: 15px;
+}
+.searchBar {
+  position: relative;
+
+  input {
+    width: 200px;
+    height: 23px;
+    text-align: center;
+    border: 1px solid #dbdada;
+    border-radius: 4px;
+    background-color: #faf9f9;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &::placeholder {
+    color: #b9b8b8;
+  }
+  svg {
+    position: absolute;
+    color: #b9b8b8;
+    font-size: 10px;
+    top: 30%;
+    animation: 0.5s moveRight ease-in-out forwards;
+  }
+
+  &:focus-within {
+    svg {
+      animation: 0.5s moveLeft ease-in-out forwards;
+    }
+  }
+}
+
+.navbarIcons {
+  ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+  }
+  li {
+    padding-inline: 15px;
+  }
+  li img {
+    width: 30px;
+    height: 30px;
+  }
+}

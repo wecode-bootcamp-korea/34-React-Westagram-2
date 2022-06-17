@@ -1,0 +1,13 @@
+.info {
+  p {
+    font-weight: bolder;
+    color: #bfbfbf;
+  }
+  a {
+    text-decoration: none;
+    color: #bfbfbf;
+  }
+  a + a:before {
+    content: ' · ';
+  }
+}
