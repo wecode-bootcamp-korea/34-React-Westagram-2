@@ -161,11 +161,20 @@
   padding-top: 10px;
   margin-top: 130px;
   margin-left: 15px;
+  position: sticky;
+  top: 0;
 }
 .rightProfile {
   display: flex;
   margin-bottom: 10px;
   margin-left: 10px;
+
+  .nameId {
+    font-weight: bolder;
+  }
+  .nameInfo {
+    color: #a4a4a4;
+  }
 }
 .rightImg {
   img {

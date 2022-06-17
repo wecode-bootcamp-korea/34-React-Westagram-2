@@ -7,4 +7,7 @@
     text-decoration: none;
     color: #bfbfbf;
   }
+  a + a:before {
+    content: ' · ';
+  }
 }

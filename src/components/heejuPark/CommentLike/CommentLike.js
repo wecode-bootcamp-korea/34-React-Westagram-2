@@ -7,13 +7,16 @@ import './commentLike.scss';
 // 댓글 좋아요 기능 구현
 const CommentLike = () => {
   const [like, setLike] = useState(false);
+
+  const toggleLike = () => {
+    setLike(!like);
+  };
+
   return (
     <FontAwesomeIcon
-      icon={like === false ? regularHeart : solidHeart}
-      className={`like${like === true ? ' check' : ''}`}
-      onClick={() => {
-        setLike(!like);
-      }}
+      icon={!like ? regularHeart : solidHeart}
+      className={`like ${like ? 'check' : ''}`}
+      onClick={toggleLike}
     />
   );
 };
